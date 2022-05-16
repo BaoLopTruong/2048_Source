@@ -7,7 +7,7 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
+let arrBlock =[];
 cc.Class({
     extends: cc.Component,
 
@@ -29,10 +29,14 @@ cc.Class({
             let arrRow = [];
             for(let col = 0; col < 4; col++){
                 arrRow.push(0);
+                
             }
             arrRows.push(arrRow);
+            arrBlock.push(arrRow);
         }
-        cc.log(arrRows)
+        //cc.log(arrRows);
+        cc.log(arrBlock);
+
         this.render(arrRows);
     },
 

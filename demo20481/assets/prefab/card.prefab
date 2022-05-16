@@ -150,8 +150,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "2",
-    "_N$string": "2",
+    "_string": "0",
+    "_N$string": "0",
     "_fontSize": 80,
     "_lineHeight": 80,
     "_enableWrapText": true,
@@ -172,7 +172,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "a436b44c-9b51-423a-b6bd-1ab0241f23f8"
     },
     "fileId": "bbYzgX39BIJK8tPs/h77CW",
     "sync": false
@@ -248,7 +248,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "a436b44c-9b51-423a-b6bd-1ab0241f23f8"
     },
     "fileId": "2bzMxi2Y1HHJ/13KbXzE7U",
     "sync": false
