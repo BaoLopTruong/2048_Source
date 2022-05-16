@@ -34,10 +34,9 @@ cc.Class({
             arrRows.push(arrRow);
             arrBlock.push(arrRow);
         }
-        //cc.log(arrRows);
         cc.log(arrBlock);
-
-        this.render(arrRows);
+        this.createRandomNumber(arrBlock);
+        this.render(arrBlock);
     },
 
     render(arrRow) {
@@ -50,16 +49,21 @@ cc.Class({
         }
     },
 
-    createRandomNumber(){
+    createRandomNumber(arrBlock){
+        let randomX = Math.floor(Math.random() * arrBlock.length);
+        let randomY = Math.floor(Math.random() * arrBlock.length);
+         arrBlock[randomX][randomY] =2;
+        cc.log(randomX, randomY);
 
     },
 
     createItem(x,y,value) {
         let card = cc.instantiate(this.card);
-        card.parent = this.node
+        card.parent = this.node;
         card.x = x;
         card.y = y;
-        //card.getComponent(cc.Label).string = value;
+        cc.log(card.children[0].getComponent('cc.Label').string);
+        card.children[0].getComponent('cc.Label').string= value;
     }
 
     // update (dt) {},
