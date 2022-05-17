@@ -83,51 +83,51 @@ cc.Class({
         card.opacity = 255;
         card.children[0].getComponent('cc.Label').string= 0;
         let objCard = {x,y,value:0};
-        this.createColor(card,0);
+        //this.createColor(card,0);
         return objCard;
     },
 
-    createColor(card,value){
-        switch(value){
-            case 0: 
-            card.color = COLOR[0];
-            break;
-            case 2: 
-            card.color = COLOR[2];
-            break;
-            case 4: 
-            card.color = COLOR[4];
-            break;
-            case 8: 
-            card.color = COLOR[8];
-            break;
-            case 16: 
-            card.color = COLOR[16];
-            break;
-            case 32: 
-            card.color = COLOR[32];
-            break;
-            case 64: 
-            card.color = COLOR[64];
-            break;
-            case 128: 
-            card.color = COLOR[128];
-            break;
-            case 256: 
-            card.color = COLOR[156];
-            break;
-            case 512: 
-            card.color = COLOR[512];
-            break; 
-            case 1024: 
-            card.color = COLOR[1024];
-            break;
-            case 2048: 
-            card.color = COLOR[2048];
-            break;
+    // createColor(card,value){
+    //     switch(value){
+    //         case 0: 
+    //         card.color = COLOR[0];
+    //         break;
+    //         case 2: 
+    //         card.color = COLOR[2];
+    //         break;
+    //         case 4: 
+    //         card.color = COLOR[4];
+    //         break;
+    //         case 8: 
+    //         card.color = COLOR[8];
+    //         break;
+    //         case 16: 
+    //         card.color = COLOR[16];
+    //         break;
+    //         case 32: 
+    //         card.color = COLOR[32];
+    //         break;
+    //         case 64: 
+    //         card.color = COLOR[64];
+    //         break;
+    //         case 128: 
+    //         card.color = COLOR[128];
+    //         break;
+    //         case 256: 
+    //         card.color = COLOR[156];
+    //         break;
+    //         case 512: 
+    //         card.color = COLOR[512];
+    //         break; 
+    //         case 1024: 
+    //         card.color = COLOR[1024];
+    //         break;
+    //         case 2048: 
+    //         card.color = COLOR[2048];
+    //         break;
 
-        }
-    },
+    //     }
+    // },
 
     // update (dt) {},
 });
