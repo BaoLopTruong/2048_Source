@@ -1,12 +1,4 @@
-// Learn cc.Class:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://docs.cocos2d-x.org/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://docs.cocos2d-x.org/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
+const COLOR = require('color');
 let arrBlock =[];
 cc.Class({
     extends: cc.Component,
@@ -62,9 +54,51 @@ cc.Class({
         card.parent = this.node;
         card.x = x;
         card.y = y;
-        cc.log(card.children[0].getComponent('cc.Label').string);
+        cc.log(card.color);
         card.children[0].getComponent('cc.Label').string= value;
-    }
+        this.createColor(card,value);
+    },
+    createColor(card,value){
+        switch(value){
+            case 0: 
+            card.color = COLOR[0];
+            break;
+            case 2: 
+            card.color = COLOR[2];
+            break;
+            case 4: 
+            card.color = COLOR[4];
+            break;
+            case 8: 
+            card.color = COLOR[8];
+            break;
+            case 16: 
+            card.color = COLOR[16];
+            break;
+            case 32: 
+            card.color = COLOR[32];
+            break;
+            case 64: 
+            card.color = COLOR[64];
+            break;
+            case 128: 
+            card.color = COLOR[128];
+            break;
+            case 256: 
+            card.color = COLOR[156];
+            break;
+            case 512: 
+            card.color = COLOR[512];
+            break; 
+            case 1024: 
+            card.color = COLOR[1024];
+            break;
+            case 2048: 
+            card.color = COLOR[2048];
+            break;
+
+        }
+    },
 
     // update (dt) {},
 });
