@@ -1,6 +1,6 @@
 {
   "ver": "2.3.3",
-  "uuid": "5a588831-21dc-48ac-9580-948770113744",
+  "uuid": "c3f65fb3-8add-4b52-ab01-4ae15525cbc8",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -9,10 +9,10 @@
   "packable": true,
   "platformSettings": {},
   "subMetas": {
-    "khunggo": {
+    "bg_game": {
       "ver": "1.0.4",
-      "uuid": "e413b87f-8034-4a9f-b70a-33b85db2ee1f",
-      "rawTextureUuid": "5a588831-21dc-48ac-9580-948770113744",
+      "uuid": "0f512ffd-3520-4671-9839-dd3b193f03b1",
+      "rawTextureUuid": "c3f65fb3-8add-4b52-ab01-4ae15525cbc8",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -20,10 +20,10 @@
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
-      "width": 273,
-      "height": 33,
-      "rawWidth": 273,
-      "rawHeight": 33,
+      "width": 658,
+      "height": 1000,
+      "rawWidth": 658,
+      "rawHeight": 1000,
       "borderTop": 0,
       "borderBottom": 0,
       "borderLeft": 0,

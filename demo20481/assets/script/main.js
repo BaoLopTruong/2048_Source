@@ -16,6 +16,8 @@ cc.Class({
     },
 
     start() {
+        this.node.x = 0;
+        this.node.y = 40;
         let arrRows = [];
         for(let row = 0 ; row < 4 ; row++){
             let arrRow = [];
@@ -52,6 +54,8 @@ cc.Class({
     createItem(x,y,value) {
         let card = cc.instantiate(this.card);
         card.parent = this.node;
+        card.width = 100;
+        card.height = 100;
         card.x = x;
         card.y = y;
         cc.log(card.color);

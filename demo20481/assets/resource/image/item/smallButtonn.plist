@@ -4,88 +4,102 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>bar.png</key>
+			<key>btn11.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{615,202},{193,51}}</string>
+				<string>{{0,187},{59,62}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{0,0},{193,51}}</string>
+				<string>{{0,0},{59,62}}</string>
 				<key>sourceSize</key>
-				<string>{193,51}</string>
+				<string>{59,62}</string>
 			</dict>
 
-			<key>bg_bxh.png</key>
+			<key>btn12.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,202},{319,224}}</string>
+				<string>{{0,124},{59,62}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{187,235},{319,224}}</string>
+				<string>{{0,0},{59,62}}</string>
 				<key>sourceSize</key>
-				<string>{694,694}</string>
+				<string>{59,62}</string>
 			</dict>
 
-			<key>button.png</key>
+			<key>btn13.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{615,254},{183,57}}</string>
+				<string>{{60,0},{59,62}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{0,0},{183,57}}</string>
+				<string>{{0,0},{59,62}}</string>
 				<key>sourceSize</key>
-				<string>{183,57}</string>
+				<string>{59,62}</string>
 			</dict>
 
-			<key>khunggo.png</key>
+			<key>btn14.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,427},{273,33}}</string>
+				<string>{{60,126},{58,62}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{0,0},{273,33}}</string>
+				<string>{{0,0},{58,62}}</string>
 				<key>sourceSize</key>
-				<string>{273,33}</string>
+				<string>{58,62}</string>
 			</dict>
 
-			<key>logo.png</key>
+			<key>btn15.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{320,202},{294,275}}</string>
+				<string>{{60,63},{59,62}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{0,0},{294,275}}</string>
+				<string>{{0,0},{59,62}}</string>
 				<key>sourceSize</key>
-				<string>{294,275}</string>
+				<string>{59,62}</string>
 			</dict>
 
-			<key>title.png</key>
+			<key>btn16.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,0},{817,201}}</string>
+				<string>{{0,62},{59,61}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{0,0},{817,201}}</string>
+				<string>{{0,0},{59,61}}</string>
 				<key>sourceSize</key>
-				<string>{817,201}</string>
+				<string>{59,61}</string>
+			</dict>
+
+			<key>btn17.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{59,61}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{59,61}}</string>
+				<key>sourceSize</key>
+				<string>{59,61}</string>
 			</dict>
 
 		</dict>
@@ -95,9 +109,9 @@
 			<key>format</key>
 			<integer>2</integer>
 			<key>size</key>
-			<string>{1024,512}</string>
+			<string>{128,256}</string>
 			<key>textureFileName</key>
-			<string>sprites.png</string>
+			<string>smallButtonn.png</string>
 			</dict>
 		</dict>
 </plist>
