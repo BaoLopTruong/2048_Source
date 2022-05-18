@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "backGround",
+    "_name": "card",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -253,6 +253,9 @@
       "__id__": 1
     },
     "_enabled": true,
+    "lblCard": {
+      "__id__": 3
+    },
     "_handleMoveUp": null,
     "_handleMoveDown": null,
     "_handleMoveLeft": null,

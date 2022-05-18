@@ -10,6 +10,7 @@ cc.Class({
             type: cc.Prefab
         },
         _arrBlocks:[],
+
         _canPress:false,
     },
 
@@ -49,85 +50,76 @@ cc.Class({
     },
 
     start() {
+        //this.init();
         this.render();
-        this.createRandomNumber();
+    },
+    init(){
+        let arrRows = [];
+        for(let row = 0 ; row < 4 ; row++){
+             arrRows[row] = [];
+            for(let col = 0; col < 4; col++){
+                arrRows[row][col]=0;
+            }  
+        }
+        this.randomNumber(arrRows);
+    
+        return arrRows;
     },
 
     render() {
+        let arrayValue =this.init();
+        this._arrBlocks = this.init();
         for(let row =0 ; row < 4 ; row++){
             for(let col = 0 ; col < 4 ; col ++){
                 let x = -226.227 + row *150;
                 let y = 225.631 - col * 150;
-                let item = this.createItem(x,y);
-                this._arrBlocks.push(item);
+                // this.createItem(x,y,arrRow[row][col]);
+                let newCard = cc.instantiate(this.card);
+                newCard.parent = this.node
+                newCard.x = x;
+                newCard.y = y;
+                newCard.color = COLOR[0];
+                newCard.children[0].getComponent('cc.Label').string = arrayValue[row][col];
+                this._arrBlocks[row][col] = newCard;
             }
         }
-        cc.log(this._arrBlocks)
+        cc.log(this._arrBlocks);
+
     },
 
-    createRandomNumber(){
-        let arrNone = this._arrBlocks.filter((value)=>{
-            return value.value == 0;
-        })
-        cc.log("arrNone: ", arrNone);
-        let randomIndex = Math.floor(Math.random() * arrNone.length);
-        arrNone[randomIndex].value = 2 ;
-        Emitter.instance.emit("doneRandom",arrNone[randomIndex]);
-    },
-
-    createItem(x,y) {
-        let card = cc.instantiate(this.card);
-        card.parent = this.node;
-        card.x = x;
-        card.y = y;
-        card.opacity = 255;
-        card.children[0].getComponent('cc.Label').string= 0;
-        let objCard = {x,y,value:0};
-        this.createColor(card,0);
-        return objCard;
-    },
-
-    createColor(card,value){
-        switch(value){
-            case 0: 
-            card.color = COLOR[0];
-            break;
-            case 2: 
-            card.color = COLOR[2];
-            break;
-            case 4: 
-            card.color = COLOR[4];
-            break;
-            case 8: 
-            card.color = COLOR[8];
-            break;
-            case 16: 
-            card.color = COLOR[16];
-            break;
-            case 32: 
-            card.color = COLOR[32];
-            break;
-            case 64: 
-            card.color = COLOR[64];
-            break;
-            case 128: 
-            card.color = COLOR[128];
-            break;
-            case 256: 
-            card.color = COLOR[156];
-            break;
-            case 512: 
-            card.color = COLOR[512];
-            break; 
-            case 1024: 
-            card.color = COLOR[1024];
-            break;
-            case 2048: 
-            card.color = COLOR[2048];
-            break;
-
+    randomNumber(arrBlock){
+        let randomX = Math.floor(Math.random() * arrBlock.length);
+        let randomY = Math.floor(Math.random() * arrBlock.length);
+        if( arrBlock[randomX][randomY]==0){
+            arrBlock[randomX][randomY] =2;
+        }else{
+           
+            return this.randomNumber(arrBlock);
         }
+
     },
+    createItem(x,y,value) {
+        let newCard = cc.instantiate(this.card);
+                newCard.parent = this.node;
+                newCard.x = x;
+                newCard.y = y;
+                newCard.color = COLOR[0];
+                newCard.children[0].getComponent('cc.Label').string = value;
+                this._arrBlocks[row][col] = newCard;
+    },
+    // createRandomNumber(){
+    //     let arrNone = this._arrBlocks.filter((value)=>{
+    //         return value.value == 0;
+    //     })
+    //     cc.log("arrNone: ", arrNone);
+    //     let randomIndex = Math.floor(Math.random() * arrNone.length);
+    //     arrNone[randomIndex].value = 2 ;
+    //     Emitter.instance.emit("doneRandom",arrNone[randomIndex]);
+    // },
+
+
+
+
 
     // update (dt) {},
 });
