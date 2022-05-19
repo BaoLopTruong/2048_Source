@@ -15,6 +15,7 @@ cc.Class({
         _handleMoveRight: null,
         _handleDoneRandom: null,
         _action: null,
+        
     },
 
     onLoad () {
@@ -141,8 +142,9 @@ cc.Class({
  
     },
 
-    animMerge(){
-
+    runAction(x,y){
+        let action = cc.moveTo(1,x,y)
+        return action;
     },
 
     start () {
