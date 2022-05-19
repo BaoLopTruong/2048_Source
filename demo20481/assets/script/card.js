@@ -105,8 +105,16 @@ cc.Class({
         this.move(-150,0);
     },
 
-    handleMoveRight(){
-        this.move(150,0)
+    handleMoveRight(col){
+        cc.log(col)
+        if(col==3){
+            return;
+        }else{
+            for(let col =0; col< 3; col++){
+                cc.log("OK")
+            }
+        }
+        //this.move(150,0)
     },
 
     compareCards(selfCard, otherCard) {
@@ -138,7 +146,7 @@ cc.Class({
     },
 
     start () {
-        cc.log(this.node.x)
+        //cc.log(this.node.x)
     },
 
     // update (dt) {},

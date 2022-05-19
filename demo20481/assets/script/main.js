@@ -10,14 +10,13 @@ cc.Class({
             type: cc.Prefab
         },
         _arrBlocks:[],
-
+        _arrValue: [],
         _canPress:false,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        cc.log(this._arrBlocks)
         this.canPress = false;
         Emitter.instance = new Emitter();
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.handleKeyDown, this);
@@ -26,23 +25,35 @@ cc.Class({
 
     handleKeyUp(evt){
             // this._canPress = false;
-            
-            // this.randomNumber();
-            // switch(evt.keyCode){
-            //     case cc.macro.KEY.up:
-            //         //Emitter.instance.emit("moveUp");
-            //         break;
-            //     case cc.macro.KEY.down:
-            //         Emitter.instance.emit("moveDown");
-            //         break;
-            //     case cc.macro.KEY.left:
-            //         Emitter.instance.emit("moveLeft");
-            //         break;
-            //     case cc.macro.KEY.right:
-            //         Emitter.instance.emit("moveRight");
-            //         break;
-            //     default: break;
-            // }
+           
+          
+            this.randomCard();
+           // this.randomNumber();
+            switch(evt.keyCode){
+                case cc.macro.KEY.up:
+                    //Emitter.instance.emit("moveUp");
+                  
+                    break;
+                case cc.macro.KEY.down:
+                    Emitter.instance.emit("moveDown");
+                    break;
+                case cc.macro.KEY.left:
+                   // this.randomCard();
+                    for (let col = 0; col <4; col++) {
+                        this.blockMoveLeft(col, 3);
+                        Emitter.instance.emit("moveLeft", col);
+                    }
+                    break;
+                case cc.macro.KEY.right:
+                    
+                    for (let col = 0; col < 4; col++) {
+                        this.blockMoveRight(col, 0);
+                        Emitter.instance.emit("moveRight", col);
+                    }
+                    break;
+                default:  
+                break;
+            }
             
     },
     handleKeyDown(evt){
@@ -56,45 +67,50 @@ cc.Class({
                 Emitter.instance.emit("moveDown");
                 break;
             case cc.macro.KEY.left:
-                Emitter.instance.emit("moveLeft");
+                //Emitter.instance.emit("moveLeft");
                 break;
             case cc.macro.KEY.right:
                 // Emitter.instance.emit("moveRight");
-                for(let row=0; row < 4; row++){
-                    this.blockHandleMoveRight(row,0);
-                }
+                // for(let row=0; row < 4; row++){
+                //     this.blockHandleMoveRight(row,0);
+                // }
                 break;
             default: break;
         }
     },
 
     start() {
-        //this.init();
-        this.render();
-        this.randomNumber()
+       
+        // this.render();
+        // this.randomNumber()
+  
+     this._arrValue = this.createEmptyArray();
+     cc.log(this._arrValue)
+     this.render();
+     this.randomCard();
+       this.randomCard();
     },
     init(){
     },
 
     render() {
-
-        for(let row =0 ; row < 4 ; row++){
+        for(let col = 0 ; col < 4 ; col ++){
             let arrRow = [];
-            for(let col = 0 ; col < 4 ; col ++){
+            for(let row = 0 ; row < 4 ; row ++){
                 let x = -226.227 + row *150;
                 let y = 225.631 - col *150;
-                // this.createItem(x,y,arrRow[row][col]);
                 let newCard = cc.instantiate(this.card);
                 newCard.parent = this.node
                 newCard.x = x;
                 newCard.y = y;
                 newCard.color = COLOR[0];
-                
-                newCard.active = false
+                newCard.children[0].getComponent('cc.Label').node.active =false; 
+                newCard.active = true;
                 arrRow.push(newCard);
             }
-            this._arrBlocks.push(arrRow)
+            this._arrBlocks.push(arrRow);
         }
+        cc.log(this._arrBlocks);
     },
 
     randomNumber(){
@@ -111,15 +127,7 @@ cc.Class({
         arrNone[index].active = true;
     },
 
-    createItem(x,y,value) {
-        let card = cc.instantiate(this.card);
-        card.parent = this.node
-        card.x = x;
-        card.y = y;
-        //card.getComponent(cc.Label).string = value;
-    },
     updateBlockNum () {
-  
         for (let row = 0; row < 4; row++) {
             for (let col = 0; col < 4; col++) {
                 this.blockArr[row][col].getComponent("block").setNumber(this.data[row][col]);
@@ -156,80 +164,113 @@ cc.Class({
 
     //code cuar bao
 
-    // start() {
-    //     this._arrBlocks = this.init();
-    //     this.render();
-    // },
-    // init(){
-    //     let arrRows = [];
-    //     for(let row = 0 ; row < 4 ; row++){
-    //          arrRows[row] = [];
-    //         for(let col = 0; col < 4; col++){
-    //             arrRows[row][col]=0;
-    //         }  
-    //     }
-    //     this.randomNumber(arrRows);
-    //     return arrRows;
-    // },
+    createEmptyArray(){
+        let emptyArr = []
+        for (let col = 0; col < 4; col++) {
+            emptyArr[col] = [];
+            for (let row = 0; row < 4; row++) {
+                emptyArr[col][row] = 0;
+            }
+        }
+        return emptyArr;
+    },
 
-    // render() {
-    //     let arrayNode =this.init();
-    //     for(let row =0 ; row < 4 ; row++){
-    //         for(let col = 0 ; col < 4 ; col ++){
-    //             let x = -226.227 + row *150;
-    //             let y = 225.631 - col * 150;
-    //             // this.createItem(x,y,arrRow[row][col]);
-    //             let newCard = cc.instantiate(this.card);
-    //             newCard.parent = this.node
-    //             newCard.x = x;
-    //             newCard.y = y;
-    //             newCard.color = COLOR[0];
-    //             newCard.children[0].getComponent('cc.Label').string = this._arrBlocks[row][col];
-    //             newCard.active = false
-    //             arrayNode.push(newCard);
-    //         }
-    //     }
-    //     cc.log(this._arrBlocks);
+    randomCard(){
+        let emptyArr = this.getEmptyArray();
+        if(emptyArr.length ==0){
+            cc.log("Full card");
+            return false;
+        }else{
+            let index = Math.floor(Math.random() * emptyArr.length);
+            this._arrValue[emptyArr[index].col][emptyArr[index].row] =2;
+            let card = this._arrBlocks[emptyArr[index].col][emptyArr[index].row];
+            card.children[0].getComponent('cc.Label').string = 2;
+            card.children[0].getComponent('cc.Label').node.active = true;
+            card.color = COLOR[2];
+        }
+    },
 
-    // },
+    getEmptyArray(){
+        let arrEmpty = [];
+        for(let col=0; col<4; col++){
+            for(let row=0; row <4 ; row++){
+                if(this._arrValue[col][row]==0){
+                    arrEmpty.push({col:col, row:row})
+                }
+            }
+        }
+        cc.log(arrEmpty);
+        return arrEmpty;
+    },
+    //xu event
+    blockMoveRight(col, row){
+        if(row == 3){
+            return false;
+        }else{
+            if(this._arrValue[col][row+1]==0){
+                this._arrValue[col][row+1] = this._arrValue[col][row];
+                this._arrValue[col][row] = 0;
+                this.blockMoveRight(col, row + 1);
+                this.updateNumber();
 
-    // randomNumber(){
-    //     // let randomX = Math.floor(Math.random() * arrBlock.length);
-    //     // let randomY = Math.floor(Math.random() * arrBlock.length);
-    //     // if( arrBlock[randomX][randomY]==0){
-    //     //     arrBlock[randomX][randomY] =2;
-    //     //     return;
-    //     // }
-    //     let flatArray = this._arrBlocks.flat(Infinity)
-    //     let arrNone = flatArray.filter((value)=>{
-    //         return value.active == false;
-    //     })
-    //     let index = Math.floor(Math.random() * arrNone.length);
-    //     arrNone[index].active = true;
-
-    // },
-    // createItem(x,y,value) {
-    //     let newCard = cc.instantiate(this.card);
-    //             newCard.parent = this.node;
-    //             newCard.x = x;
-    //             newCard.y = y;
-    //             newCard.color = COLOR[0];
-    //             newCard.children[0].getComponent('cc.Label').string = value;
-    //             this._arrBlocks[row][col] = newCard;
-    // },
-    // createRandomNumber(){
-    //     let arrNone = this._arrBlocks.filter((value)=>{
-    //         return value.value == 0;
-    //     })
-    //     cc.log("arrNone: ", arrNone);
-    //     let randomIndex = Math.floor(Math.random() * arrNone.length);
-    //     arrNone[randomIndex].value = 2 ;
-    //     Emitter.instance.emit("doneRandom",arrNone[randomIndex]);
-    // },
-
-
-
-
+            }
+            else{
+                if(row < 3){
+                    if(this._arrValue[col][row] == this._arrValue[col][row+1]){
+                        this._arrValue[col][row+1] *=2;
+                        this._arrValue[col][row] = 0;
+                    }
+                    this.blockMoveRight(col, row + 1);
+                    if(this._arrValue[col][row + 1] == 0){
+                        this._arrValue[col][row + 1] = this._arrValue[col][row];
+                        this._arrValue[col][row] = 0;
+                        this.updateNumber();
+                    }
+                }
+            }
+        }
+    },
+    blockMoveLeft(col, row){
+        if (row == 0) {
+            return;
+        }
+        else {
+            if (this._arrValue[col][row - 1] == 0) {
+                this._arrValue[col][row - 1] = this._arrValue[col][row];
+                this._arrValue[col][row] = 0;
+                this.blockMoveLeft(col, row - 1); 0
+                this.updateNumber();
+            }
+            else {
+                if (col >0) {
+                    if (this._arrValue[col][row] == this._arrValue[col][row - 1]) {
+                        this._arrValue[col][row - 1] *= 2;
+                        this._arrValue[col][row] = 0;
+                    }
+                    this.blockMoveLeft(col, row - 1);
+                    if (this._arrValue[col][row - 1] == 0) {
+                        this._arrValue[col][row - 1] = this._arrValue[col][row];
+                        this._arrValue[col][row] = 0;
+                        this.updateNumber();
+                    }
+                }
+            }
+        }
+    },
+    updateNumber(){
+        for (let col = 0; col < 4; col++) {
+            for (let row = 0; row < 4; row++) {
+                this._arrBlocks[col][row].children[0].getComponent('cc.Label').string = this._arrValue[col][row];
+                this._arrBlocks[col][row].color = COLOR[this._arrValue[col][row]];
+                if(this._arrValue[col][row] !=0){
+                    this._arrBlocks[col][row].children[0].getComponent('cc.Label').node.active = true;
+                }
+                if(this._arrValue[col][row] ==0){
+                    this._arrBlocks[col][row].children[0].getComponent('cc.Label').node.active = false;
+                }
+            }
+        }
+    },
 
     // update (dt) {},
 });
