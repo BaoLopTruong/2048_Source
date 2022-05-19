@@ -13,22 +13,35 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
         btnPlay: cc.Button,
         btnRank: cc.Button,
 
         openStart: null,
         clickPlay: null,
+<<<<<<< HEAD
         users: [],
+=======
+        
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
     },
 
     // LIFE-CYCLE CALLBACKS:
 
+<<<<<<< HEAD
     onLoad() {
+=======
+    onLoad () {
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
         this.openStart = this.doOpenStart.bind(this);
         // this.clickPlay = this.doClickPlay.bind(this);
 
 
+<<<<<<< HEAD
         emitter.instance.registerEvent("OPEN_START", this.openStart);
     },
 
@@ -44,6 +57,17 @@ cc.Class({
     },
 
 
+=======
+        // emitter.instance.registerEvent("CLICK_PLAY", this.render);
+    },
+
+    start () {
+        
+        this.btnRank.node.on("click", this.onClickRank, this);
+    },
+
+    
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
     onClickRank() {
         emitter.instance.emit("OPEN_RANK");
         emitter.instance.emit("RENDER");
@@ -51,12 +75,19 @@ cc.Class({
     },
 
     doOpenStart() {
+<<<<<<< HEAD
         // cc.log(data, "dada");
         // cc.log("users: ", this.users);
         // this.users = data;
+=======
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
         this.node.active = true;
     }
 
 
     // update (dt) {},
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd

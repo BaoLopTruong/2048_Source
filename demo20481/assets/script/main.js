@@ -1,7 +1,12 @@
 const COLOR = require('color');
+<<<<<<< HEAD
 const { royalblue } = require('color-name');
 const emitter = require('mEmitter');
 let arrBlock = [];
+=======
+let arrBlock =[];
+const emitter = require("mEmitter");
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
 cc.Class({
     extends: cc.Component,
 
@@ -19,6 +24,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
+<<<<<<< HEAD
     onLoad() {
         this.canPress = false;
         this.playGame = this.onPlayGame.bind(this);
@@ -230,6 +236,10 @@ cc.Class({
             }
         }
 
+=======
+    onLoad () {
+        
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
     },
 
     start() {

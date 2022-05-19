@@ -9,12 +9,19 @@
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 const emitter = require("mEmitter");
+<<<<<<< HEAD
 const db = JSON.parse(cc.sys.localStorage.getItem("users"));
+=======
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
 cc.Class({
     extends: cc.Component,
 
     properties: {
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
         rank: cc.Layout,
         prefab_item: cc.Prefab,
         btnClose: cc.Button,
@@ -26,15 +33,26 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
+<<<<<<< HEAD
     onLoad() {
         this.openRank = this.doOpenRank.bind(this);
         this.clickClose = this.doClickClose.bind(this);
         this.render = this.doRender.bind(this);
+=======
+    onLoad () {
+        this.openRank = this.doOpenRank.bind(this);
+        this.clickClose = this.doClickClose.bind(this);
+        this.render = this.doRender.bind(this);
+        
+        
+
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
 
         emitter.instance.registerEvent("OPEN_RANK", this.openRank);
         // emitter.instance.registerEvent("SUBMIT", this.clickSubmit);
         emitter.instance.registerEvent("RENDER", this.render);
 
+<<<<<<< HEAD
 
     },
 
@@ -49,6 +67,19 @@ cc.Class({
         // emitter.instance.emit("OPEN_START");
         emitter.instance.emit("DEFAULT");
         // emitter.instance.emit("OPEN_GAMEOVER");
+=======
+        
+    },
+
+    start () {
+        this.btnClose.node.on("click", this.clickClose, this);
+        
+    },
+
+    doClickClose() {
+        emitter.instance.emit("OPEN_START");
+        emitter.instance.emit("OPEN_GAMEOVER");
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
         this.node.active = false;
     },
 
@@ -58,6 +89,7 @@ cc.Class({
 
     doRender() {
         let data = JSON.parse(cc.sys.localStorage.getItem("users"));
+<<<<<<< HEAD
         if (data != null) {
             data = data.sort((a, b) => {
                 parseInt(b.score) - parseInt(a.score);
@@ -65,6 +97,12 @@ cc.Class({
             this.renderAllUser(data);
         }
 
+=======
+        data = data.sort((a, b) => {
+            b.score - a.score;
+        });
+        this.renderAllUser(data);
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
     },
 
     renderAllUser(data) {
@@ -78,6 +116,7 @@ cc.Class({
         item.children[0].getComponent("cc.Label").string = index + 1;
         item.children[1].getComponent("cc.Label").string = user.name;
         item.children[2].getComponent("cc.Label").string = user.score;
+<<<<<<< HEAD
         // cc.log(item.x);
         // cc.log(item.y);
         return item;
@@ -95,3 +134,12 @@ cc.Class({
 
     // update (dt) {},
 });
+=======
+        cc.log(item.x);
+        cc.log(item.y);
+        return item;
+    },
+
+    // update (dt) {},
+});
+>>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
