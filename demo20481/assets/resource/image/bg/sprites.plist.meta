@@ -1,7 +1,7 @@
 {
   "ver": "1.2.4",
-  "uuid": "b60c311b-42f0-4946-8a6d-5ed73c90f9ff",
-  "rawTextureUuid": "d4cf92d3-5f2a-4b3c-8e0c-f672eacd733f",
+  "uuid": "30547220-8b24-4ec2-ad60-1f8daab779f0",
+  "rawTextureUuid": "dea701bb-640b-43ee-8820-217b5e21cc32",
   "size": {
     "width": 1024,
     "height": 1024
@@ -10,8 +10,8 @@
   "subMetas": {
     "bg_game.jpg": {
       "ver": "1.0.4",
-      "uuid": "5109daec-973c-4249-8f3e-f44802b456d1",
-      "rawTextureUuid": "d4cf92d3-5f2a-4b3c-8e0c-f672eacd733f",
+      "uuid": "d8c2fc6a-a40f-4938-b202-3f2c2ee2a16e",
+      "rawTextureUuid": "dea701bb-640b-43ee-8820-217b5e21cc32",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
