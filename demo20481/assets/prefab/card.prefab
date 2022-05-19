@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "backGround",
+    "_name": "card",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -44,8 +44,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
-      "height": 150
+      "width": 140,
+      "height": 140
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -221,8 +221,8 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 200,
-      "height": 150
+      "width": 140,
+      "height": 140
     },
     "_resize": 0,
     "_N$layoutType": 0,
