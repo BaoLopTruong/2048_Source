@@ -41,14 +41,14 @@ cc.Class({
                    // this.randomCard();
                     for (let col = 0; col <4; col++) {
                         this.blockMoveLeft(col, 3);
-                        Emitter.instance.emit("moveLeft", col);
+                        Emitter.instance.emit("moveLeft", this._arrBlocks);
                     }
                     break;
                 case cc.macro.KEY.right:
                     
                     for (let col = 0; col < 4; col++) {
                         this.blockMoveRight(col, 0);
-                        Emitter.instance.emit("moveRight", col);
+                        Emitter.instance.emit("moveRight", this._arrBlocks[col][col+1]);
                     }
                     break;
                 default:  
@@ -208,8 +208,10 @@ cc.Class({
             return false;
         }else{
             if(this._arrValue[col][row+1]==0){
+                cc.log(this._arrBlocks[col][row].x, this._arrBlocks[col][row].y)
+               // cc.log(this._arrBlocks[col][row+1].x, this._arrBlocks[col][row+1].y)  
                 this._arrValue[col][row+1] = this._arrValue[col][row];
-                this._arrValue[col][row] = 0;
+                this._arrValue[col][row] = 0;          
                 this.blockMoveRight(col, row + 1);
                 this.updateNumber();
 
@@ -264,6 +266,7 @@ cc.Class({
                 this._arrBlocks[col][row].color = COLOR[this._arrValue[col][row]];
                 if(this._arrValue[col][row] !=0){
                     this._arrBlocks[col][row].children[0].getComponent('cc.Label').node.active = true;
+                    
                 }
                 if(this._arrValue[col][row] ==0){
                     this._arrBlocks[col][row].children[0].getComponent('cc.Label').node.active = false;

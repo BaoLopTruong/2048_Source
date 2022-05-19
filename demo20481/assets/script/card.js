@@ -106,16 +106,17 @@ cc.Class({
         this.move(-150,0);
     },
 
-    handleMoveRight(col){
-        cc.log(col)
-        if(col==3){
-            return;
-        }else{
-            for(let col =0; col< 3; col++){
-                cc.log("OK")
-            }
-        }
-        //this.move(150,0)
+    handleMoveRight(card){
+        cc.log(card)
+        
+    },
+    handleMove(selfCard, otherCard, callBack) {
+        let x = otherCard.x;
+        let y = otherCard.y;
+        cc.tween(selfCard)
+            .to(2, { x: x, y: y })
+            .call(callBack)
+            .start()
     },
 
     compareCards(selfCard, otherCard) {
@@ -142,9 +143,11 @@ cc.Class({
  
     },
 
-    runAction(x,y){
-        let action = cc.moveTo(1,x,y)
-        return action;
+    Action(x,y){
+      cc.tween(this.node)
+        .to(1, {x: x, y: y})
+        .start()
+    
     },
 
     start () {
