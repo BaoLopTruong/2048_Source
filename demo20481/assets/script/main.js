@@ -1,5 +1,6 @@
 const COLOR = require('color');
 let arrBlock =[];
+const emitter = require("mEmitter");
 cc.Class({
     extends: cc.Component,
 
@@ -13,6 +14,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+        
     },
 
     start() {
