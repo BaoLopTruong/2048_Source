@@ -1,1 +1,0 @@
-daythung_01.png.png 0 0, daythung_02.png.png 0 49, daythung_03.png.png 0 134, daythung_04.png.png 0 208.
