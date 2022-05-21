@@ -9,11 +9,12 @@
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 const emitter = require("mEmitter");
-const db = JSON.parse(cc.sys.localStorage.getItem("users"));
+
 cc.Class({
     extends: cc.Component,
 
     properties: {
+
         rank: cc.Layout,
         prefab_item: cc.Prefab,
         btnClose: cc.Button,
@@ -31,7 +32,6 @@ cc.Class({
         this.render = this.doRender.bind(this);
 
         emitter.instance.registerEvent("OPEN_RANK", this.openRank);
-        // emitter.instance.registerEvent("SUBMIT", this.clickSubmit);
         emitter.instance.registerEvent("RENDER", this.render);
 
 
@@ -43,25 +43,25 @@ cc.Class({
     },
 
     doClickClose() {
-        this.removeItem();
-
         // emitter.instance.emit("OPEN_START");
-        emitter.instance.emit("DEFAULT");
+        emitter.instance.emit("DEFAULT", this.node);
+        this.removeItem();
         // emitter.instance.emit("OPEN_GAMEOVER");
-        this.node.active = false;
+        // this.node.active = false;
     },
 
     doOpenRank() {
-        this.node.active = true;
+
     },
 
     doRender() {
         let data = JSON.parse(cc.sys.localStorage.getItem("users"));
         if (data != null) {
             data = data.sort((a, b) => {
-                parseInt(b.score) - parseInt(a.score);
+                return parseInt(b.score) - parseInt(a.score);
             });
             this.renderAllUser(data);
+            emitter.instance.emit("BEST_SCORE", data[0].score);
         }
 
     },
@@ -84,12 +84,6 @@ cc.Class({
 
     removeItem() {
         this.rank.node.removeAllChildren();
-    },
-
-    checkData() {
-        if (db != null) {
-            this.users = db;
-        }
     },
 
     // update (dt) {},

@@ -13,6 +13,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+
         btnPlay: cc.Button,
         btnRank: cc.Button,
 
@@ -38,22 +39,22 @@ cc.Class({
     },
 
     onClickPlay() {
-        emitter.instance.emit("CLICK_PLAY");
-        emitter.instance.emit("PLAYING");
+
+        emitter.instance.emit("PLAYING", this.node);
     },
 
 
     onClickRank() {
-        emitter.instance.emit("OPEN_RANK");
+        emitter.instance.emit("RANK", this.node);
         emitter.instance.emit("RENDER");
-        this.node.active = false;
+        // this.node.active = false;
     },
 
     doOpenStart() {
         // cc.log(data, "dada");
         // cc.log("users: ", this.users);
         // this.users = data;
-        this.node.active = true;
+        // this.node.active = true;
     }
 
 

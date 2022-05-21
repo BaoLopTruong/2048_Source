@@ -11,7 +11,6 @@ const emitter = require("mEmitter");
 cc.Class({
     extends: cc.Component,
 
-<<<<<<< HEAD
     properties: {
 
         menuStart: cc.Component,
@@ -23,30 +22,16 @@ cc.Class({
         playingState: null,
         gameOverState: null,
         defaultState: null,
-=======
-    properties: {      
-        
-        menuStart: cc.Component,
-        gameOver: cc.Component,
-        menuPlaying: cc.Component,
-        menuRank: cc.Component,  
-        
->>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-<<<<<<< HEAD
     onLoad() {
-=======
-    onLoad () {
->>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
         emitter.instance = new emitter();
         this.menuStart.node.active = true;
         this.gameOver.node.active = true;
         this.menuPlaying.node.active = true;
         this.menuRank.node.active = true;
-<<<<<<< HEAD
         this.listBlock.node.active = true;
 
         this.playingState = this.onPlaying.bind(this);
@@ -63,18 +48,10 @@ cc.Class({
     },
 
     onDefault() {
-=======
-
-        // cc.log(this.menuRank)
-    },
-
-    start () {
->>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
         this.menuStart.node.active = true;
         this.gameOver.node.active = false;
         this.menuPlaying.node.active = false;
         this.menuRank.node.active = false;
-<<<<<<< HEAD
         this.listBlock.node.active = false;
     },
 
@@ -95,10 +72,3 @@ cc.Class({
     }
     // update (dt) {},
 });
-=======
-
-    },
-
-    // update (dt) {},
-});
->>>>>>> 59f99bb4ce8066d6a086b81a12ffb85da27163bd
