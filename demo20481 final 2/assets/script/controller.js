@@ -65,7 +65,7 @@ cc.Class({
             if (node == this.menuStart) {
                 this.doCloseStart(node).start();
             } else {
-                this.doClose(node).start();
+                this.doCloseRankAndGameOver(node).start();
             }
         }
         // cc.delayTime(0.5);
@@ -82,7 +82,6 @@ cc.Class({
         //         this.doCloseRankAndGameOver(node).start();
         //     }
         // }
-        this.doCloseRankAndGameOver(node).start();
         this.doCloseRankAndGameOver(this.gameOver).start();
         this.doCloseRankAndGameOver(this.menuRank).start();
         this.doCloseMenuPlaying(this.menuPlaying).start();
@@ -97,7 +96,7 @@ cc.Class({
             if (node == this.menuStart) {
                 this.doCloseStart(node).start();
             } else {
-                this.doClose(node).start();
+                this.doCloseRankAndGameOver(node).start();
             }
         }
         this.doShowRankAndGameOver(this.gameOver).start();
